@@ -20,16 +20,17 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="爬虫的基本用法这篇文章介绍爬虫的基本原理和基本用法 一、爬虫的基本流程 发起请求 通过HTTP库向目标网页发起request请求，等待服务器响应   获取响应 若服务器正常响应，会得到一个response，response的内容就是请求的网页的内容   解析内容 得到的html。可以用正则表达式，网页解析库进行解析   保存数据 可以存为文本，也可保存至数据库">
+  <meta name="description" content="爬虫的基本用法这篇文章介绍爬虫的基本原理和基本用法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spyder2">
+<meta property="og:title" content="爬虫的基本原理和基本用法">
 <meta property="og:url" content="http://example.com/2021/03/02/spyder2/index.html">
 <meta property="og:site_name" content="Pursuitzhan&#39;s Blog">
-<meta property="og:description" content="爬虫的基本用法这篇文章介绍爬虫的基本原理和基本用法 一、爬虫的基本流程 发起请求 通过HTTP库向目标网页发起request请求，等待服务器响应   获取响应 若服务器正常响应，会得到一个response，response的内容就是请求的网页的内容   解析内容 得到的html。可以用正则表达式，网页解析库进行解析   保存数据 可以存为文本，也可保存至数据库">
+<meta property="og:description" content="爬虫的基本用法这篇文章介绍爬虫的基本原理和基本用法">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-02T07:07:34.000Z">
-<meta property="article:modified_time" content="2021-03-02T10:26:37.307Z">
+<meta property="article:modified_time" content="2021-03-07T07:14:02.693Z">
 <meta property="article:author" content="pursuitzhan">
+<meta property="article:tag" content="爬虫">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/2021/03/02/spyder2/">
@@ -45,7 +46,7 @@
   };
 </script>
 
-  <title>spyder2 | Pursuitzhan's Blog</title>
+  <title>爬虫的基本原理和基本用法 | Pursuitzhan's Blog</title>
   
 
 
@@ -202,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          spyder2
+          爬虫的基本原理和基本用法
         </h1>
 
         <div class="post-meta">
@@ -211,9 +212,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-02 15:07:34 / 修改时间：18:26:37" itemprop="dateCreated datePublished" datetime="2021-03-02T15:07:34+08:00">2021-03-02</time>
+              <time title="创建时间：2021-03-02 15:07:34" itemprop="dateCreated datePublished" datetime="2021-03-02T15:07:34+08:00">2021-03-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-07 15:14:02" itemprop="dateModified" datetime="2021-03-07T15:14:02+08:00">2021-03-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a>
+                </span>
             </span>
 
           
@@ -228,6 +244,7 @@
 
       
         <h2 id="爬虫的基本用法"><a href="#爬虫的基本用法" class="headerlink" title="爬虫的基本用法"></a>爬虫的基本用法</h2><p>这篇文章介绍爬虫的基本原理和基本用法</p>
+<span id="more"></span>
 <h4 id="一、爬虫的基本流程"><a href="#一、爬虫的基本流程" class="headerlink" title="一、爬虫的基本流程"></a>一、爬虫的基本流程</h4><ol>
 <li>发起请求<ul>
 <li>通过HTTP库向目标网页发起request请求，等待服务器响应</li>
@@ -246,6 +263,87 @@
 </ul>
 </li>
 </ol>
+<h4 id="二、request请求包含什么？"><a href="#二、request请求包含什么？" class="headerlink" title="二、request请求包含什么？"></a>二、request请求包含什么？</h4><ol>
+<li><p><strong>请求方式：</strong></p>
+<ul>
+<li>主要用GET，POST两种</li>
+<li>另外还有HEAD、PUT、delete、options不常用</li>
+</ul>
+<p> <strong>注：get请求和post请求的区别</strong></p>
+<ul>
+<li>get请求：参数跟在url后面，可以通过url直接访问</li>
+<li>post请求： 不能再直接通过url访问，需要提交类似于表单的请求，例如登陆验证，可以保证一定程度的信息安全。</li>
+</ul>
+</li>
+<li><p><strong>请求url</strong></p>
+<ul>
+<li>url全称：统一资源定位符。如一个网页，一张图片都可以用url来唯一确定</li>
+</ul>
+</li>
+<li><p><strong>请求头</strong></p>
+<ul>
+<li>包含请求时的头部信息：如User-Agent、 Host、 Cookies等信息</li>
+</ul>
+</li>
+<li><p><strong>请求体</strong></p>
+<ul>
+<li>请求时额外携带的数据，如表单提交时的表单数据</li>
+</ul>
+</li>
+</ol>
+<h4 id="三、Response包含什么？"><a href="#三、Response包含什么？" class="headerlink" title="三、Response包含什么？"></a>三、Response包含什么？</h4><ol>
+<li><p><strong>响应状态</strong><br>多种响应状态码：如200表示成功，301表示跳转，404找不到页面，502服务器错误</p>
+</li>
+<li><p><strong>响应头</strong></p>
+<ul>
+<li>如内容类型、内容长度、服务器信息、设置cookies维持会话等</li>
+</ul>
+</li>
+<li><p><strong>响应体</strong><br>最主要的部分，包含了请求网页的源代码。</p>
+</li>
+</ol>
+<h4 id="四、Requests库的get-方法"><a href="#四、Requests库的get-方法" class="headerlink" title="四、Requests库的get()方法"></a>四、Requests库的get()方法</h4><ol>
+<li><p><strong>r = requests.get(url)</strong></p>
+ <font color="blue">
+ > 检测是否安装成功的方法  
+ > import requests  
+ > r=requests.get("http://www.baidu.com")  
+ > print(r.status_code)
+ > 要是返回的状态码是200，则说明访问成功
+ </font>
+</li>
+<li><p><strong>Response对象的属性</strong></p>
+<blockquote>
+<p>r.status_code   —&gt; http请求的返回状态，200表示连接成功，404表示连接失败<br>r.text   —&gt;http响应内容的字符串形式，即网络页面的内容<br>r.encoding  —&gt;从HTTP header中获取响应内容的编码方式<br>r.appearent_encoding  —&gt; 从内容中分析出响应内容的编码方式  </p>
+</blockquote>
+</li>
+</ol>
+<h4 id="五、抓取的网页怎样解析？"><a href="#五、抓取的网页怎样解析？" class="headerlink" title="五、抓取的网页怎样解析？"></a>五、抓取的网页怎样解析？</h4><ol>
+<li><p><strong>直接处理</strong><br>网页比较简单的情况可以直接处理</p>
+</li>
+<li><p><strong>json解析</strong></p>
+</li>
+<li><p><strong>正则表达式</strong><br>规则的字符串，用来提取出文本中，我们所需要的信息。</p>
+</li>
+<li><p><strong>BeautifulSoup解析库</strong></p>
+</li>
+<li><p><strong>PyQuery解析库</strong></p>
+</li>
+<li><p><strong>XPath解析库</strong></p>
+</li>
+</ol>
+<h4 id="问题：为什么请求到的结果和网页显示的而不一样？"><a href="#问题：为什么请求到的结果和网页显示的而不一样？" class="headerlink" title="问题：为什么请求到的结果和网页显示的而不一样？"></a>问题：为什么请求到的结果和网页显示的而不一样？</h4><p>原始的html没有这些数据，很多数据是通过js加载出来的</p>
+<p><strong>怎样解决javascript问题</strong></p>
+<ol>
+<li><p>分析Ajax请求<br>Ajax请求返回的是json格式的数据，翻遍提取</p>
+</li>
+<li><p>通过Selenium/WebDriver驱动浏览器模拟加载网页</p>
+</li>
+<li><p>通过Splash库<br>也是用来模拟加载网页的；在github搜索Splash</p>
+</li>
+<li><p>PyV8库，Ghost.py</p>
+</li>
+</ol>
 
     </div>
 
@@ -254,6 +352,10 @@
     
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%88%AC%E8%99%AB/" rel="tag"><i class="fa fa-tag"></i> 爬虫</a>
+          </div>
 
         
 
@@ -261,10 +363,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/03/02/%E8%BD%AF%E4%BB%B6%E5%91%BD%E4%BB%A4%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="prev" title="spyder2">
-      <i class="fa fa-chevron-left"></i> spyder2
+    <a href="/2021/03/02/%E8%BD%AF%E4%BB%B6%E5%91%BD%E4%BB%A4%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="prev" title="软件的命令随手记">
+      <i class="fa fa-chevron-left"></i> 软件的命令随手记
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/07/urllib%E5%BA%93%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="next" title="urllib库基本使用">
+      urllib库基本使用 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -323,7 +428,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%88%AC%E8%99%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">爬虫的基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%88%AC%E8%99%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、爬虫的基本流程</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%88%AC%E8%99%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">爬虫的基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%88%AC%E8%99%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、爬虫的基本流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81request%E8%AF%B7%E6%B1%82%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.0.2.</span> <span class="nav-text">二、request请求包含什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81Response%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.0.3.</span> <span class="nav-text">三、Response包含什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Requests%E5%BA%93%E7%9A%84get-%E6%96%B9%E6%B3%95"><span class="nav-number">1.0.4.</span> <span class="nav-text">四、Requests库的get()方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%8A%93%E5%8F%96%E7%9A%84%E7%BD%91%E9%A1%B5%E6%80%8E%E6%A0%B7%E8%A7%A3%E6%9E%90%EF%BC%9F"><span class="nav-number">1.0.5.</span> <span class="nav-text">五、抓取的网页怎样解析？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B7%E6%B1%82%E5%88%B0%E7%9A%84%E7%BB%93%E6%9E%9C%E5%92%8C%E7%BD%91%E9%A1%B5%E6%98%BE%E7%A4%BA%E7%9A%84%E8%80%8C%E4%B8%8D%E4%B8%80%E6%A0%B7%EF%BC%9F"><span class="nav-number">1.0.6.</span> <span class="nav-text">问题：为什么请求到的结果和网页显示的而不一样？</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -339,7 +444,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -352,7 +457,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

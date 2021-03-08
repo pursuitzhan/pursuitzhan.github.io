@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Request库的使用</title>
+    <url>/2021/03/08/Request%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="Reuqest库的基本使用"><a href="#Reuqest库的基本使用" class="headerlink" title="Reuqest库的基本使用"></a>Reuqest库的基本使用</h2><p>urllib在使用时还是相对比较繁琐，比如处理代理和cookie等。<br>Requests是用python编写，基于urllib编写的，比urllib更加方便，可以节约我们大量的工作。</p>
+<span id="more"></span>
+
+<h3 id="一、requests各种请求方式"><a href="#一、requests各种请求方式" class="headerlink" title="一、requests各种请求方式"></a>一、requests各种请求方式</h3><p><strong>Response对象的属性</strong><br>    <code>response.status_code</code>   —&gt; http请求的返回状态，200表示连接成功，404表示连接失败<br>    <code>response.headers</code><br>    <code>response.cookies</code><br>    <code>response.url</code><br>    <code>response.text</code>   —&gt;http响应内容的字符串形式，即网络页面的内容<br>    <code>response.encoding</code>  —&gt;从HTTP header中获取响应内容的编码方式<br>    <code>response.appearent_encoding</code>  —&gt; 从内容中分析出响应内容的编码方式<br>    <code>response.content</code>  —&gt; 返回内容的二进制编码形式</p>
+<h4 id="Get请求"><a href="#Get请求" class="headerlink" title="Get请求"></a>Get请求</h4><ol>
+<li><p><strong>基本的GET请求</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span>  requests</span><br><span class="line">response = requests.get(<span class="string">&#x27;http://httpbin.org/get&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>带参数的GET请求</strong><br>可以用字典的形式传值，不用自己写url编码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;zhan&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span>:<span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(<span class="string">&#x27;http://httpbin.org/get&#x27;</span>, params=data)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>获取二进制数据—例如图片，视频</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">response = requests.get(<span class="string">&#x27;http://github.com/favicon.ico&#x27;</span>)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;favicon.ico&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(response.content)</span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>添加headers</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozailla/5.0....&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(<span class="string">&#x27;http://www.zhihu.com/explore&#x27;</span>, headers=headers)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h4><ol>
+<li><strong>基本的post请求</strong><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">data = &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;gremey&#x27;</span>, <span class="string">&#x27;age&#x27;</span>:<span class="string">&#x27;22&#x27;</span>&#125;</span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozailla/5.0....&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.post(<span class="string">&#x27;http://httpbin.org/post&#x27;</span>, data=data, headers=headers)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="二、高级操作"><a href="#二、高级操作" class="headerlink" title="二、高级操作"></a>二、高级操作</h3><ol>
+<li><p><strong>获取cookie</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"> response = requests.get(<span class="string">&#x27;https://www.baidu.com&#x27;</span>)</span><br><span class="line"> print(response.cookies)</span><br><span class="line"> <span class="keyword">for</span> key, value <span class="keyword">in</span> response.cookies.items():</span><br><span class="line">     print(key+<span class="string">&#x27;=&#x27;</span>+value)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>会话维持模拟登陆</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">s = requests.Session()    <span class="comment">#用session对象发起post请求，用来登陆</span></span><br><span class="line">s.get(<span class="string">&#x27;http://...&#x27;</span>)</span><br><span class="line">response = s.get(<span class="string">&#x27;http://&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>证书验证</strong><br>用requests请求一个网站时，如果网站是https协议，它会首先检测证书是否是合法的，如果检测证书是不合法，会直接抛出SSLError错误，使程序中断。</p>
+<ul>
+<li>直接取消证书验证，但还是有警告信息<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">response = requests.get(<span class="string">&#x27;https://www.12306.cn&#x27;</span>, verify=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>代理设置</strong></p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">proxies=&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(<span class="string">&#x27;http://...&#x27;</span>, proxies=proxies)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>爬取网页的通用代码框架</strong><br> 加入了网络异常处理的部分，使代码更加完善<br> Requests库的异常有以下几个:</p>
+<pre><code> `requests.ConnectionError` ---&gt;网络连接异常，如DNS查询失败，拒绝连接等  
+ `requests.HTTPError` ---&gt;HTTP错误异常  
+ `requests.URLRequired` ---&gt;URL缺失异常  
+ `requests.TooManyRedirects` ---&gt;超过最大重定向次数，产生定向异常  
+ `requests.ConnectTimeout`  ---&gt;连接远程服务器超时异常  
+ `requests.Timeout`  ---&gt;请求URL超时，产生超时异常 
+</code></pre>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+  </entry>
+  <entry>
     <title>这篇文章用来介绍怎样通过Github和hexo来搭建个人博客</title>
     <url>/2021/03/01/build-blog/</url>
     <content><![CDATA[<h3 id="前言：需要准备的工具"><a href="#前言：需要准备的工具" class="headerlink" title="前言：需要准备的工具"></a>前言：需要准备的工具</h3><ol>
@@ -70,7 +128,7 @@
 <li>打开GitHub_Settings_keys 页面，新建new SSH Key</li>
 </ol>
 <ol start="5">
-<li><p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;">&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;</a> </p>
+<li><p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#105;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#109;">&#103;&#105;&#x74;&#64;&#103;&#105;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#109;</a> </p>
 </li>
 <li><p>打开博客根目录下的_config.yml文件，这是博客的配置文件，在这里你可以修改与博客相关的各种信息。</p>
 <p> 修改最后一行的配置：</p>

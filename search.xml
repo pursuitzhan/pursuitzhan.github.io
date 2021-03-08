@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>爬虫环境安装</title>
-    <url>/2021/03/01/spyder1/</url>
-    <content><![CDATA[<h2 id="先介绍怎样安装分布式数据库MongoDB"><a href="#先介绍怎样安装分布式数据库MongoDB" class="headerlink" title="先介绍怎样安装分布式数据库MongoDB"></a>先介绍怎样安装分布式数据库MongoDB</h2><p>目的：便于存储非结构化的数据  </p>
-]]></content>
-      <categories>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>爬虫 环境安装</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>这篇文章用来介绍怎样通过Github和hexo来搭建个人博客</title>
     <url>/2021/03/01/build-blog/</url>
     <content><![CDATA[<h3 id="前言：需要准备的工具"><a href="#前言：需要准备的工具" class="headerlink" title="前言：需要准备的工具"></a>前言：需要准备的工具</h3><ol>
@@ -82,7 +70,7 @@
 <li>打开GitHub_Settings_keys 页面，新建new SSH Key</li>
 </ol>
 <ol start="5">
-<li><p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#x63;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#x63;&#111;&#x6d;</a> </p>
+<li><p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;">&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;</a> </p>
 </li>
 <li><p>打开博客根目录下的_config.yml文件，这是博客的配置文件，在这里你可以修改与博客相关的各种信息。</p>
 <p> 修改最后一行的配置：</p>
@@ -114,6 +102,18 @@
       </categories>
       <tags>
         <tag>网页</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>爬虫环境安装</title>
+    <url>/2021/03/01/spyder1/</url>
+    <content><![CDATA[<h2 id="先介绍怎样安装分布式数据库MongoDB"><a href="#先介绍怎样安装分布式数据库MongoDB" class="headerlink" title="先介绍怎样安装分布式数据库MongoDB"></a>先介绍怎样安装分布式数据库MongoDB</h2><p>目的：便于存储非结构化的数据  </p>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>爬虫 环境安装</tag>
       </tags>
   </entry>
   <entry>

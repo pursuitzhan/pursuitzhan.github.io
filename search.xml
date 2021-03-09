@@ -1,6 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>BeautifulSoup库的基本用法</title>
+    <url>/2021/03/09/BeautifulSoup%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="BeautifulSoup库的基本用法"><a href="#BeautifulSoup库的基本用法" class="headerlink" title="BeautifulSoup库的基本用法"></a>BeautifulSoup库的基本用法</h2><p>BeautifulSoup是灵活又方便的网页解析库，处理高效，支持多种解析器。利用它不用编写正则表达式即可方便地实现网页信息地提取。</p>
+<span id="more"></span>
+
+<ol>
+<li><strong>解析器的选择</strong><div align="center"><img src="https://raw.githubusercontent.com/pursuitzhan/picture/master/img/20210309074913.png" alt="20210309074913" width="90%" height=""/></div>
+一般常用 `lxml` 解析器
+
+</li>
+</ol>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><h4 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h4><p>以下的代码演示，基于下面的html文档</p>
+<div align="center"><img src="https://raw.githubusercontent.com/pursuitzhan/picture/master/img/20210309080512.png" alt="20210309080512" width="80%" height=""/></div>
+
+<ol>
+<li><p><strong>选择元素</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(html, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">print(soup.title)   <span class="comment">#这里会把标签和标签里的内容一起输出</span></span><br><span class="line">print(soup.head)</span><br><span class="line">print(soup.p)</span><br></pre></td></tr></table></figure>
+<p>注：这里有个问题需要注意，通过这种方式获取标签，如果文档中有多个这样的标签，返回的结果是第一个标签的内容，如上面我们通过<code>soup.p</code>获取<code>p</code>标签，而文档中有多个<code>p</code>标签，但是只返回了第一个<code>p</code>标签内容</p>
+</li>
+<li><p><strong>获取名称</strong><br>就是获取标签的名称，例如<code>title</code>, <code>head</code>, <code>p</code>等</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">soup.tilte.name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>获取属性</strong><br>属性是指：标签里面的属性，例如<code>&lt;p class=&quot;title&quot; name=&quot;dromouse&quot;&gt;</code> 的<code>name</code>属性</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(soup.p.attrs[<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line">print(soup.p[<span class="string">&#x27;name&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<p> 上面两种方式都可以获取p标签的name属性值</p>
+</li>
+<li><p><strong>获取内容</strong><br> 内容是指：标签中间的内容，例如<code>&lt;p class=&quot;title&quot; name=&quot;dromouse&quot;&gt;&lt;b&gt;The Dormouse&#39;s story&lt;/b&gt;&lt;/p&gt;</code>。内容是：<code>The Dormouse&#39;s story</code></p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">soup.p.string</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>嵌套选择</strong><br>我们直接可以通过下面嵌套的方式获取<br><code>print(soup.head.title.string)</code><br>直接输出head里面的 <code>The Dormouse&#39;s story</code></p>
+</li>
+<li><p><strong>子节点和子孙节点</strong></p>
+<ol>
+<li>获取子节点—<code>contents</code> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(html, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">print(soup.p.contents)</span><br></pre></td></tr></table></figure>
+ 结果是将p标签下的所有子标签存入到了一个列表中</li>
+<li>获取子节点—<code>children</code> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(html, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">print(soup.p.children)</span><br><span class="line"><span class="keyword">for</span> i,child <span class="keyword">in</span> <span class="built_in">enumerate</span>(soup.p.children):</span><br><span class="line">    print(i, child)</span><br></pre></td></tr></table></figure>
+ 通过<code>children</code>的方式也可以获取p标签下的所有子节点内容和通过contents获取的结果是一样的，但是不同的地方是<code>soup.p.children</code>是一个迭代对象，而不是列表，只能通过循环的方式获取素有的信息.</li>
+<li>获取孙子节点<br> 通过<code>contents</code>以及<code>children</code>都是获取子节点，如果想要获取子孙节点可以通<code>descendants</code><br> <code>print(soup.descendants)</code>同时这种获取的结果也是一个迭代器</li>
+</ol>
+</li>
+<li><p><strong>获取父节点</strong><br> 通过<code>soup.a.parent</code>就可以获取<code>a</code>节点的父节点<code>p</code>节点的信息</p>
+</li>
+<li><p><strong>获取兄弟节点</strong><br><code>soup.a.next_siblings</code> 获取后面所有的兄弟节点<br><code>soup.a.previous_siblings</code> 获取前面所有的兄弟节点<br><code>soup.a.next_sibling</code> 获取下一个兄弟标签<br><code>souo.a.previous_sinbling</code> 获取上一个兄弟标签</p>
+</li>
+</ol>
+<p><strong>但是仅仅使用这种标签的选择方式是远远不能满足我们的需求的，下面介绍一些标准的选择器</strong></p>
+<h4 id="标准选择器"><a href="#标准选择器" class="headerlink" title="标准选择器"></a>标准选择器</h4><p>以下的代码演示，基于下面的html文档</p>
+<div align="center"><img src="https://raw.githubusercontent.com/pursuitzhan/picture/master/img/20210309083653.png" alt="20210309083653" width="60%" height=""/></div>
+
+<ol>
+<li><p><strong>find_all(name,attrs,recursive,text,**kwargs)</strong><br>可以根据标签名，属性，内容查找文档</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(html, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> ul <span class="keyword">in</span> soup.find_all(<span class="string">&#x27;ul&#x27;</span>):</span><br><span class="line">    print(ul.find_all(<span class="string">&#x27;li&#x27;</span>))   <span class="comment">#遍历所有的`ul`标签。并遍历`ul`标签下的所有`li`标签</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>利用attrs通过属性名进行查找</strong><br>attrs可以传入字典的方式来查找标签，其键名是标签的属性名，键值是标签的属性值。 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(html, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">print(soup.find_all(attrs=&#123;<span class="string">&#x27;id&#x27;</span>:<span class="string">&#x27;list-1&#x27;</span>&#125;))  <span class="comment">#输出的是第一个 ul 标签</span></span><br></pre></td></tr></table></figure>
+ 有一些特殊的属性，可以不用attrs查找，直接进行查找，例如： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(soup.find_all(<span class="built_in">id</span>=<span class="string">&#x27;list-1&#x27;</span>))</span><br><span class="line">print(soup.find_all(class_=<span class="string">&#x27;element&#x27;</span>))</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p><strong>find(name,attrs,recursive,text,**kwargs)</strong><br> 和find_all方法用法完全一样，只不过find_all是返回所有的节点，find方法指返回第一个节点</p>
+ <div align="center"><img src="https://raw.githubusercontent.com/pursuitzhan/picture/master/img/20210309085751.png" alt="20210309085751" width="90%" height=""/></div>
+
+</li>
+</ol>
+<h4 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h4><p>BeautifulSoup提供了select方法，可以直接传入css选择器进行查找，相对于find_all方法更简单。</p>
+<p>以下的代码演示，基于下面的html文档</p>
+<div align="center"><img src="https://raw.githubusercontent.com/pursuitzhan/picture/master/img/20210309090516.png" alt="20210309090516" width="50%" height=""/></div>
+
+<ol>
+<li><p>如果需要查找<code>class</code>，要在前面加<code>.</code>, 例如</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(soup.select(<span class="string">&#x27;.panel .panel-heading&#x27;</span>))  <span class="comment">#输出了第二个&lt;div&gt;标签。 注意.panel后面有空格</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接选择标签</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(soup.select(<span class="string">&#x27;ul li&#x27;</span>))  <span class="comment">#输出了所有ul标签里面的所有li标签</span></span><br></pre></td></tr></table></figure></li>
+<li><p>用id选择，需要加<code>#</code>号</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(soup.select(<span class="string">&#x27;#list-2 .element&#x27;</span>))  <span class="comment">#输出了list-2里面的所有element。注意list-2后面有空格</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>获取标签的属性</strong></p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ul = soup.select(<span class="string">&#x27;ul&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">print(ul[<span class="string">&#x27;id&#x27;</span>])</span><br><span class="line">print(ul.attrs(<span class="string">&#x27;id&#x27;</span>))  <span class="comment">#两种方法均可以输出第一个ul标签的id</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>获取标签的内容</strong></p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(html, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> li <span class="keyword">in</span> soup.select(<span class="string">&#x27;li&#x27;</span>):</span><br><span class="line">    print(li.get_text())</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>Request库的使用</title>
     <url>/2021/03/08/Request%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="Reuqest库的基本使用"><a href="#Reuqest库的基本使用" class="headerlink" title="Reuqest库的基本使用"></a>Reuqest库的基本使用</h2><p>urllib在使用时还是相对比较繁琐，比如处理代理和cookie等。<br>Requests是用python编写，基于urllib编写的，比urllib更加方便，可以节约我们大量的工作。</p>
@@ -128,7 +215,7 @@
 <li>打开GitHub_Settings_keys 页面，新建new SSH Key</li>
 </ol>
 <ol start="5">
-<li><p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#105;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#109;">&#103;&#105;&#x74;&#64;&#103;&#105;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#109;</a> </p>
+<li><p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;">&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;</a> </p>
 </li>
 <li><p>打开博客根目录下的_config.yml文件，这是博客的配置文件，在这里你可以修改与博客相关的各种信息。</p>
 <p> 修改最后一行的配置：</p>

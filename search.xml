@@ -233,7 +233,7 @@
 <li>打开GitHub_Settings_keys 页面，新建new SSH Key</li>
 </ol>
 <ol start="5">
-<li><p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#105;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#109;">&#x67;&#x69;&#x74;&#64;&#103;&#105;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#109;</a> </p>
+<li><p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;</a> </p>
 </li>
 <li><p>打开博客根目录下的_config.yml文件，这是博客的配置文件，在这里你可以修改与博客相关的各种信息。</p>
 <p> 修改最后一行的配置：</p>
@@ -392,96 +392,6 @@
       </tags>
   </entry>
   <entry>
-    <title>xpath的基本使用</title>
-    <url>/2021/03/10/xpath/</url>
-    <content><![CDATA[<h2 id="介绍xpath的基本使用"><a href="#介绍xpath的基本使用" class="headerlink" title="介绍xpath的基本使用"></a>介绍xpath的基本使用</h2><p>XPath 是一门在 XML 文档中查找信息的语言。XPath 用于在 XML 文档中通过元素和属性进行导航。</p>
-<span id="more"></span>
-
-<p>在 XPath 中，有七种类型的节点：元素、属性、文本、命名空间、处理指令、注释以及文档（根）节点。XML 文档是被作为节点树来对待的</p>
-<h3 id="xpath语法"><a href="#xpath语法" class="headerlink" title="xpath语法"></a>xpath语法</h3><table>
-    <tr>
-        <th>符号</th>
-        <th>作用</th>
-    </tr>
-    <tr bgcolor=#FFEBCD>
-        <th>节点名称</th>
-        <th>选取此节点的所有子节点</th>
-    </tr>
-    <tr>
-        <th>/</th>
-        <th>从根节点选取</th>
-    </tr>
-    <tr bgcolor=#FFEBCD>
-        <th>//</th>
-        <th>从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置</th>
-    </tr>
-        <tr>
-        <th>.</th>
-        <th>选取当前节点</th>
-    </tr>
-    <tr bgcolor=#FFEBCD>
-        <th>..</th>
-        <th>    选取当前节点的父节点</th>
-    </tr>
-        <tr>
-        <th>@</th>
-        <th>选取属性</th>
-    </tr>
-</table>
-#### 一个例子
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">&quot;eng&quot;</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">&quot;eng&quot;</span>&gt;</span>Learning XML<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">price</span>&gt;</span>39.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
-`xml.xpath(“bookstore”)` 表示选取 bookstore 元素的所有子节点
-`xml.xpath(“/bookstore”)` 表示选取根元素 bookstore。
-`xml.xpath(“bookstore/book”)` 选取属于 bookstore 的子元素的所有 book 元素。
-`xml.xpath(“//book”)` 选取所有 book 子元素，而不管它们在文档中的位置。
-`xml.xpath(“bookstore//book”)` 选择属于 bookstore 元素的后代的所有 book 元素，而不管它们位于 bookstore 之下的什么位置。
-`xml.xpath(“//@lang”)` 选取名为 lang 的所有属性。
-
-<h4 id="按条件查询结果"><a href="#按条件查询结果" class="headerlink" title="按条件查询结果"></a>按条件查询结果</h4><div align="center"><img src="https://raw.githubusercontent.com/pursuitzhan/picture/master/img/20210310214132.png" alt="20210310214132" width="90%" height=""/></div>
-
-<h4 id="选取未知节点"><a href="#选取未知节点" class="headerlink" title="选取未知节点"></a>选取未知节点</h4><table>
-    <tr>
-        <th>符号</th>
-        <th>作用</th>
-        <th>例子</th>
-        <th>结果</th>
-    </tr>
-    <tr bgcolor=#FFEBCD>
-        <th>*</th>
-        <th>匹配任何元素节点</th>
-        <th>/bookstore/*</th>
-        <th>选取 bookstore 元素的所有子元素</th>
-    </tr>
-    <tr>
-        <th>@*</th>
-        <th>匹配任何属性节点</th>
-        <th>//*</th>
-        <th>选取文档中的所有元素</th>
-    </tr>
-    <tr bgcolor=#FFEBCD>
-        <th>node()</th>
-        <th>匹配任何类型的节点</th>
-        <th>//title[@*]</th>
-        <th>选取所有带有属性的 title 元素</th>
-    </tr>
-</table>
-
-<h4 id="选取若干路径"><a href="#选取若干路径" class="headerlink" title="选取若干路径"></a>选取若干路径</h4><p>通过在路径表达式中使用“|”运算符，您可以选取若干个路径。</p>
-<p><code>//book/title | //book/price</code> 选取 book 元素的所有 title 和 price 元素。<br><code>//title | //price</code> 选取文档中的所有 title 和 price 元素。<br><code>/bookstore/book/title | //price</code> 选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。</p>
-<h4 id="一些函数"><a href="#一些函数" class="headerlink" title="一些函数"></a>一些函数</h4><ol>
-<li><p><strong>starts-with函数</strong><br>获取以xxx开头的元素<br>例子：xpath(‘//div[stars-with(@class,”test”)]’)</p>
-</li>
-<li><p><strong>contains函数</strong><br>获取包含xxx的元素<br>例子：xpath(‘//div[contains(@id,”test”)]’)</p>
-</li>
-<li><p><strong>and</strong><br>与的关系<br>例子：xpath(‘//div[contains(@id,”test”) and contains(@id,”title”)]’)</p>
-</li>
-<li><p><strong>text()函数</strong><br>例子1：xpath(‘//div[contains(text(),”test”)]’)<br>例子2：xpath(‘//div[@id=”“test]/text()’)</p>
-</li>
-</ol>
-<h4 id="内容来自于"><a href="#内容来自于" class="headerlink" title="内容来自于"></a>内容来自于</h4><p><a href="https://blog.csdn.net/Ka_Ka314/article/details/80997222">XPath — 用法总结整理</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>urllib库基本使用</title>
     <url>/2021/03/07/urllib%E5%BA%93%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="urllib库基本使用"><a href="#urllib库基本使用" class="headerlink" title="urllib库基本使用"></a>urllib库基本使用</h2><p>urllib是python内置的http请求库，我们只需要关心请求所需要的头部信息，不需要关注底层的原理。</p>
@@ -564,6 +474,91 @@
       <categories>
         <category>爬虫</category>
       </categories>
+  </entry>
+  <entry>
+    <title>xpath的基本使用</title>
+    <url>/2021/03/10/xpath/</url>
+    <content><![CDATA[<h2 id="介绍xpath的基本使用"><a href="#介绍xpath的基本使用" class="headerlink" title="介绍xpath的基本使用"></a>介绍xpath的基本使用</h2><p>XPath 是一门在 XML 文档中查找信息的语言。XPath 用于在 XML 文档中通过元素和属性进行导航。</p>
+<span id="more"></span>
+
+<p>在 XPath 中，有七种类型的节点：元素、属性、文本、命名空间、处理指令、注释以及文档（根）节点。XML 文档是被作为节点树来对待的</p>
+<h3 id="xpath语法"><a href="#xpath语法" class="headerlink" title="xpath语法"></a>xpath语法</h3><table>
+    <tr>
+        <th>符号</th>
+        <th>作用</th>
+    </tr>
+    <tr bgcolor=#FFEBCD>
+        <th>节点名称</th>
+        <th>选取此节点的所有子节点</th>
+    </tr>
+    <tr>
+        <th>/</th>
+        <th>从根节点选取</th>
+    </tr>
+    <tr bgcolor=#FFEBCD>
+        <th>//</th>
+        <th>从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置</th>
+    </tr>
+        <tr>
+        <th>.</th>
+        <th>选取当前节点</th>
+    </tr>
+    <tr bgcolor=#FFEBCD>
+        <th>..</th>
+        <th>    选取当前节点的父节点</th>
+    </tr>
+        <tr>
+        <th>@</th>
+        <th>选取属性</th>
+    </tr>
+</table>
+
+<h4 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">&quot;eng&quot;</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">&quot;eng&quot;</span>&gt;</span>Learning XML<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">price</span>&gt;</span>39.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>xml.xpath(“bookstore”)</code> 表示选取 bookstore 元素的所有子节点<br><code>xml.xpath(“/bookstore”)</code> 表示选取根元素 bookstore。<br><code>xml.xpath(“bookstore/book”)</code> 选取属于 bookstore 的子元素的所有 book 元素。<br><code>xml.xpath(“//book”)</code> 选取所有 book 子元素，而不管它们在文档中的位置。<br><code>xml.xpath(“bookstore//book”)</code> 选择属于 bookstore 元素的后代的所有 book 元素，而不管它们位于 bookstore 之下的什么位置。<br><code>xml.xpath(“//@lang”)</code> 选取名为 lang 的所有属性。</p>
+<h4 id="按条件查询结果"><a href="#按条件查询结果" class="headerlink" title="按条件查询结果"></a>按条件查询结果</h4><div align="center"><img src="https://raw.githubusercontent.com/pursuitzhan/picture/master/img/20210310214132.png" alt="20210310214132" width="100%" height=""/></div>
+
+<h4 id="选取未知节点"><a href="#选取未知节点" class="headerlink" title="选取未知节点"></a>选取未知节点</h4><table>
+    <tr>
+        <th>符号</th>
+        <th>作用</th>
+        <th>例子</th>
+        <th>结果</th>
+    </tr>
+    <tr bgcolor=#FFEBCD>
+        <th>*</th>
+        <th>匹配任何元素节点</th>
+        <th>/bookstore/*</th>
+        <th>选取 bookstore 元素的所有子元素</th>
+    </tr>
+    <tr>
+        <th>@*</th>
+        <th>匹配任何属性节点</th>
+        <th>//*</th>
+        <th>选取文档中的所有元素</th>
+    </tr>
+    <tr bgcolor=#FFEBCD>
+        <th>node()</th>
+        <th>匹配任何类型的节点</th>
+        <th>//title[@*]</th>
+        <th>选取所有带有属性的 title 元素</th>
+    </tr>
+</table>
+
+<h4 id="选取若干路径"><a href="#选取若干路径" class="headerlink" title="选取若干路径"></a>选取若干路径</h4><p>通过在路径表达式中使用“|”运算符，您可以选取若干个路径。</p>
+<p><code>//book/title | //book/price</code> 选取 book 元素的所有 title 和 price 元素。<br><code>//title | //price</code> 选取文档中的所有 title 和 price 元素。<br><code>/bookstore/book/title | //price</code> 选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。</p>
+<h4 id="一些函数"><a href="#一些函数" class="headerlink" title="一些函数"></a>一些函数</h4><ol>
+<li><p><strong>starts-with函数</strong><br>获取以xxx开头的元素<br>例子：xpath(‘//div[stars-with(@class,”test”)]’)</p>
+</li>
+<li><p><strong>contains函数</strong><br>获取包含xxx的元素<br>例子：xpath(‘//div[contains(@id,”test”)]’)</p>
+</li>
+<li><p><strong>and</strong><br>与的关系<br>例子：xpath(‘//div[contains(@id,”test”) and contains(@id,”title”)]’)</p>
+</li>
+<li><p><strong>text()函数</strong><br>例子1：xpath(‘//div[contains(text(),”test”)]’)<br>例子2：xpath(‘//div[@id=”“test]/text()’)</p>
+</li>
+</ol>
+<h4 id="内容来自于"><a href="#内容来自于" class="headerlink" title="内容来自于"></a>内容来自于</h4><p><a href="https://blog.csdn.net/Ka_Ka314/article/details/80997222">XPath — 用法总结整理</a></p>
+]]></content>
   </entry>
   <entry>
     <title>推荐系统架构</title>

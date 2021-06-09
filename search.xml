@@ -276,7 +276,7 @@
 <li>打开GitHub_Settings_keys 页面，新建new SSH Key</li>
 </ol>
 <ol start="5">
-<li><p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;">&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;</a> </p>
+<li><p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#x6d;">&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#x6d;</a> </p>
 </li>
 <li><p>打开博客根目录下的_config.yml文件，这是博客的配置文件，在这里你可以修改与博客相关的各种信息。</p>
 <p> 修改最后一行的配置：</p>
@@ -658,58 +658,6 @@
       </categories>
   </entry>
   <entry>
-    <title>推荐系统架构</title>
-    <url>/2021/03/09/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/</url>
-    <content><![CDATA[<h2 id="推荐系统设计"><a href="#推荐系统设计" class="headerlink" title="推荐系统设计"></a>推荐系统设计</h2><h3 id="推荐系统要素"><a href="#推荐系统要素" class="headerlink" title="推荐系统要素"></a>推荐系统要素</h3><pre><code>1. 前端界面
-2. 数据(Lambda架构)
-3. 业务知识
-4. 算法
-</code></pre>
-<span id="more"></span>
-
-<h4 id="推荐系统"><a href="#推荐系统" class="headerlink" title="推荐系统"></a>推荐系统</h4><div align="center"><img src="https://raw.githubusercontent.com/pursuitzhan/picture/master/img/20210309111304.png" alt="20210309111304" width="60%" height=""/></div>
-
-<h3 id="大数据Lambda框架"><a href="#大数据Lambda框架" class="headerlink" title="大数据Lambda框架"></a>大数据Lambda框架</h3><ul>
-<li>Lambda系统框架提供了一个结合实时数据和Hadoop数据环境的混合平台，混合实时计算和离线计算。</li>
-<li>分层架构<ul>
-<li>批处理层（离线处理）<ul>
-<li>数据不可变，高延迟</li>
-<li>日志收集  Flume</li>
-<li>分布式存储 Hadoop hdfs</li>
-<li>分布式计算 Hadoop MapReduce &amp; spark</li>
-<li>存储数据库<ul>
-<li>nosql</li>
-<li>redis/memcache</li>
-<li>mysql</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>实时处理层<ul>
-<li>流式处理，持续计算</li>
-<li>实时数据收集 flume &amp; kafka</li>
-<li>实时数据分析 spark streaming/storm/flink</li>
-</ul>
-</li>
-<li>服务层<ul>
-<li>支持随机读</li>
-<li>需要在短时间内返回结果</li>
-<li>读取批处理层和实时处理层结果并进行归并</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Lambda框架图<div align="center"><img src="https://raw.githubusercontent.com/pursuitzhan/picture/master/img/20210309143757.png" alt="20210309143757" width="80%" height=""/></div>
-
-</li>
-</ul>
-<p>P5</p>
-]]></content>
-      <categories>
-        <category>推荐</category>
-      </categories>
-  </entry>
-  <entry>
     <title>xpath的基本使用</title>
     <url>/2021/03/10/xpath/</url>
     <content><![CDATA[<h2 id="介绍xpath的基本使用"><a href="#介绍xpath的基本使用" class="headerlink" title="介绍xpath的基本使用"></a>介绍xpath的基本使用</h2><p>XPath 是一门在 XML 文档中查找信息的语言。XPath 用于在 XML 文档中通过元素和属性进行导航。</p>
@@ -799,17 +747,101 @@
       </categories>
   </entry>
   <entry>
-    <title>爬虫代码实战---仿猫眼top100</title>
-    <url>/2021/03/19/%E7%88%AC%E8%99%AB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98-%E4%BB%BF%E7%8C%AB%E7%9C%BCtop100/</url>
-    <content><![CDATA[<h2 id="主要用来记录爬虫的代码"><a href="#主要用来记录爬虫的代码" class="headerlink" title="主要用来记录爬虫的代码"></a>主要用来记录爬虫的代码</h2><p>爬取的链接<a href="https://static1.scrape.cuiqingcai.com/">https://static1.scrape.cuiqingcai.com/</a><br>这个网站是仿的猫眼Top100</p>
+    <title>推荐系统架构</title>
+    <url>/2021/03/09/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/</url>
+    <content><![CDATA[<h2 id="推荐系统设计"><a href="#推荐系统设计" class="headerlink" title="推荐系统设计"></a>推荐系统设计</h2><h3 id="推荐系统要素"><a href="#推荐系统要素" class="headerlink" title="推荐系统要素"></a>推荐系统要素</h3><pre><code>1. 前端界面
+2. 数据(Lambda架构)
+3. 业务知识
+4. 算法
+</code></pre>
 <span id="more"></span>
 
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"><span class="keyword">from</span> pyquery <span class="keyword">import</span> PyQuery <span class="keyword">as</span> pq</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urljoin</span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.INFO, <span class="built_in">format</span>=<span class="string">&#x27;%(asctime)s = %(levelname)s: %(message)s&#x27;</span>)</span><br><span class="line">Base_url = <span class="string">&#x27;https://static1.scrape.cuiqingcai.com&#x27;</span>   <span class="comment">#基础url</span></span><br><span class="line">total_page = <span class="number">10</span>   <span class="comment">#爬取的总页数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scrape_page</span>(<span class="params">url</span>):</span>    <span class="comment">#爬取页面，返回页面的html，电影的详情页</span></span><br><span class="line">    logging.info(<span class="string">&#x27;scraping %s...&#x27;</span>,url)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        response = requests.get(url,verify=<span class="literal">False</span>)    <span class="comment">#网页请求，取消证书验证警告</span></span><br><span class="line">        <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">            <span class="keyword">return</span> response.text   <span class="comment">#返回网页</span></span><br><span class="line">        logging.error(<span class="string">&#x27;get invalid status code %s while scraping %s&#x27;</span>, response.status_code, url)</span><br><span class="line">    <span class="keyword">except</span> requests.RequestException:</span><br><span class="line">        logging.error(<span class="string">&#x27;error occurred while scraping %s&#x27;</span>, url, exc_info=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scrape_index</span>(<span class="params">page</span>):</span>  <span class="comment">#获取电影列表的页面，一个页面包含10个电影</span></span><br><span class="line">    index_url = <span class="string">f&#x27;<span class="subst">&#123;Base_url&#125;</span>/page/<span class="subst">&#123;page&#125;</span>&#x27;</span>    <span class="comment">#拼接url  https://static1.scrape.cuiqingcai.com/page/1</span></span><br><span class="line">    <span class="keyword">return</span> scrape_page(index_url)   <span class="comment">#获取页面</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_index</span>(<span class="params">html</span>):</span>    <span class="comment">#解析网页,获取该页面中10个电影的详情链接</span></span><br><span class="line">    doc = pq(html)</span><br><span class="line">    links = doc(<span class="string">&#x27;.el-card .name&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> link <span class="keyword">in</span> links.items():</span><br><span class="line">        href = link.attr(<span class="string">&#x27;href&#x27;</span>)   <span class="comment">#获取详情页链接</span></span><br><span class="line">        detail_url = urljoin(Base_url, href)   <span class="comment">#链接拼接</span></span><br><span class="line">        <span class="comment">#logging.info(&#x27;get detail url %s&#x27;, detail_url)   #输出详情页链接</span></span><br><span class="line">        <span class="keyword">yield</span> detail_url</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scrape_detila</span>(<span class="params">url</span>):</span></span><br><span class="line">    <span class="keyword">return</span> scrape_page(url)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_detail</span>(<span class="params">html</span>):</span></span><br><span class="line">    doc = pq(html)</span><br><span class="line">    cover = doc(<span class="string">&#x27;img.cover&#x27;</span>).attr(<span class="string">&#x27;src&#x27;</span>)   <span class="comment">#获取封面图片</span></span><br><span class="line">    name = doc(<span class="string">&#x27;a&gt;h2&#x27;</span>).text()   <span class="comment">#直接选取 a 节点的直接子节点 h2 节点，并调用 text 方法提取其文本内容即可得到名称。</span></span><br><span class="line">    categories = [item.text() <span class="keyword">for</span> item <span class="keyword">in</span> doc(<span class="string">&#x27;.categories button span&#x27;</span>).items()]</span><br><span class="line">    publish_at = doc(<span class="string">&#x27;.info:contains(上映) &#x27;</span>).text()</span><br><span class="line">    publish_at = re.search(<span class="string">&#x27;(\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;)&#x27;</span>, publish_at).group(<span class="number">1</span>) <span class="keyword">if</span> publish_at <span class="keyword">and</span> re.search(<span class="string">&#x27;\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;&#x27;</span>, publish_at) <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">    drama = doc(<span class="string">&#x27;.drama p&#x27;</span>).text()</span><br><span class="line">    score = doc(<span class="string">&#x27;p.score&#x27;</span>).text()</span><br><span class="line">    score = <span class="built_in">float</span>(score) <span class="keyword">if</span> score <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="string">&#x27;cover&#x27;</span>: cover,</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span>: name,</span><br><span class="line">        <span class="string">&#x27;categories&#x27;</span>: categories,</span><br><span class="line">        <span class="string">&#x27;published_at&#x27;</span>: publish_at,</span><br><span class="line">        <span class="string">&#x27;drama&#x27;</span>: drama,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span>: score</span><br><span class="line">    &#125;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_data</span>(<span class="params">data</span>):</span></span><br><span class="line">    collection.update_one(&#123;<span class="string">&#x27;name&#x27;</span>: data.get(<span class="string">&#x27;name&#x27;</span>)&#125;, &#123;<span class="string">&#x27;$set&#x27;</span>: data&#125;, upsert=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, total_page+<span class="number">1</span>):</span><br><span class="line">        index_html = scrape_index(page)</span><br><span class="line">        detail_urls = parse_index(index_html)</span><br><span class="line">        <span class="keyword">for</span> detail_url <span class="keyword">in</span> detail_urls:</span><br><span class="line">            detail_html = scrape_detila(detail_url)</span><br><span class="line">            data = parse_detail(detail_html)</span><br><span class="line">            logging.info(<span class="string">&#x27;detail data is %s&#x27;</span>, data)</span><br><span class="line">            save_data(data)</span><br><span class="line">            print(<span class="string">&quot;存储成功&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    MONGO_CONNECTION_STRING = <span class="string">&#x27;mongodb://localhost:27017&#x27;</span></span><br><span class="line">    MONGO_DB_NAME = <span class="string">&#x27;movies&#x27;</span></span><br><span class="line">    MONGO_COLLECTION_NAME = <span class="string">&#x27;movies&#x27;</span></span><br><span class="line">    client = pymongo.MongoClient(MONGO_CONNECTION_STRING)</span><br><span class="line">    db = client[<span class="string">&#x27;movies&#x27;</span>]</span><br><span class="line">    collection = db[<span class="string">&#x27;movies&#x27;</span>]</span><br><span class="line">    main()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+<h4 id="推荐系统"><a href="#推荐系统" class="headerlink" title="推荐系统"></a>推荐系统</h4><div align="center"><img src="https://raw.githubusercontent.com/pursuitzhan/picture/master/img/20210309111304.png" alt="20210309111304" width="60%" height=""/></div>
+
+<h3 id="大数据Lambda框架"><a href="#大数据Lambda框架" class="headerlink" title="大数据Lambda框架"></a>大数据Lambda框架</h3><ul>
+<li>Lambda系统框架提供了一个结合实时数据和Hadoop数据环境的混合平台，混合实时计算和离线计算。</li>
+<li>分层架构<ul>
+<li>批处理层（离线处理）<ul>
+<li>数据不可变，高延迟</li>
+<li>日志收集  Flume</li>
+<li>分布式存储 Hadoop hdfs</li>
+<li>分布式计算 Hadoop MapReduce &amp; spark</li>
+<li>存储数据库<ul>
+<li>nosql</li>
+<li>redis/memcache</li>
+<li>mysql</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>实时处理层<ul>
+<li>流式处理，持续计算</li>
+<li>实时数据收集 flume &amp; kafka</li>
+<li>实时数据分析 spark streaming/storm/flink</li>
+</ul>
+</li>
+<li>服务层<ul>
+<li>支持随机读</li>
+<li>需要在短时间内返回结果</li>
+<li>读取批处理层和实时处理层结果并进行归并</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Lambda框架图<div align="center"><img src="https://raw.githubusercontent.com/pursuitzhan/picture/master/img/20210309143757.png" alt="20210309143757" width="80%" height=""/></div>
+
+</li>
+</ul>
+<p>P5</p>
+]]></content>
       <categories>
-        <category>爬虫 代码</category>
+        <category>推荐</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>梯度下降与随机梯度下降</title>
+    <url>/2021/05/11/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/</url>
+    <content><![CDATA[<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2>]]></content>
+      <categories>
+        <category>机器学习</category>
       </categories>
       <tags>
-        <tag>代码</tag>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软件的命令随手记</title>
+    <url>/2021/03/02/%E8%BD%AF%E4%BB%B6%E5%91%BD%E4%BB%A4%E9%9A%8F%E6%89%8B%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="软件的命令随手记"><a href="#软件的命令随手记" class="headerlink" title="软件的命令随手记"></a>软件的命令随手记</h2><p>这个文档主要用来记各种软件使用过程重容易忘记的命令</p>
+<span id="more"></span>
+
+<h3 id="vscode相关"><a href="#vscode相关" class="headerlink" title="vscode相关"></a>vscode相关</h3><ol>
+<li><p>在vscode中打开命令行： “ ctrl+` ”  </p>
+</li>
+<li><p>编写markdown时，利用插件picgo插入图片快捷键，win10从剪贴板插入图片：<code>Ctrl+shift+u</code> </p>
+</li>
+</ol>
+<h3 id="hexo相关"><a href="#hexo相关" class="headerlink" title="hexo相关"></a>hexo相关</h3><ol>
+<li><p>新建一个博客：<code>hexo new &quot;这里写个名字&quot;</code></p>
+</li>
+<li><p>清除public：<code>hexo clean</code> ; 生成网页：<code>hexo g</code> ; 本地预览：<code>hexo s</code> ; 部署：<code>hexo d</code>;</p>
+</li>
+</ol>
+<h3 id="Marp相关"><a href="#Marp相关" class="headerlink" title="Marp相关"></a>Marp相关</h3><ol>
+<li>marp预览不起作用： ctrl+shift+v</li>
+</ol>
+<h3 id="markdown相关"><a href="#markdown相关" class="headerlink" title="markdown相关"></a>markdown相关</h3><ol>
+<li>markdown插入图片时，怎样为图片加入题注：<ul>
+<li>直接在图片下方加入: &lt;center&gt;题注&lt;/center&gt;</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>软件命令</tag>
       </tags>
   </entry>
   <entry>
@@ -832,32 +864,17 @@
       </categories>
   </entry>
   <entry>
-    <title>软件的命令随手记</title>
-    <url>/2021/03/02/%E8%BD%AF%E4%BB%B6%E5%91%BD%E4%BB%A4%E9%9A%8F%E6%89%8B%E8%AE%B0/</url>
-    <content><![CDATA[<h2 id="软件的命令随手记"><a href="#软件的命令随手记" class="headerlink" title="软件的命令随手记"></a>软件的命令随手记</h2><p>这个文档主要用来记各种软件使用过程重容易忘记的命令</p>
+    <title>爬虫代码实战---仿猫眼top100</title>
+    <url>/2021/03/19/%E7%88%AC%E8%99%AB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98-%E4%BB%BF%E7%8C%AB%E7%9C%BCtop100/</url>
+    <content><![CDATA[<h2 id="主要用来记录爬虫的代码"><a href="#主要用来记录爬虫的代码" class="headerlink" title="主要用来记录爬虫的代码"></a>主要用来记录爬虫的代码</h2><p>爬取的链接<a href="https://static1.scrape.cuiqingcai.com/">https://static1.scrape.cuiqingcai.com/</a><br>这个网站是仿的猫眼Top100</p>
 <span id="more"></span>
 
-<h3 id="vscode相关"><a href="#vscode相关" class="headerlink" title="vscode相关"></a>vscode相关</h3><ol>
-<li><p>在vscode中打开命令行： “ ctrl+shift+` ”  </p>
-</li>
-<li><p>编写markdown时，利用插件picgo插入图片快捷键，win10从剪贴板插入图片：<code>Ctrl+atl+u</code></p>
-</li>
-</ol>
-<h3 id="hexo相关"><a href="#hexo相关" class="headerlink" title="hexo相关"></a>hexo相关</h3><ol>
-<li><p>新建一个博客：<code>hexo new &quot;这里写个名字&quot;</code></p>
-</li>
-<li><p>清除public：<code>hexo clean</code> ; 生成网页：<code>hexo g</code> ; 本地预览：<code>hexo s</code> ; 部署：<code>hexo d</code>;</p>
-</li>
-</ol>
-<h3 id="Marp相关"><a href="#Marp相关" class="headerlink" title="Marp相关"></a>Marp相关</h3><ol>
-<li>marp预览不起作用： ctrl+shift+v</li>
-</ol>
-]]></content>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"><span class="keyword">from</span> pyquery <span class="keyword">import</span> PyQuery <span class="keyword">as</span> pq</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urljoin</span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.INFO, <span class="built_in">format</span>=<span class="string">&#x27;%(asctime)s = %(levelname)s: %(message)s&#x27;</span>)</span><br><span class="line">Base_url = <span class="string">&#x27;https://static1.scrape.cuiqingcai.com&#x27;</span>   <span class="comment">#基础url</span></span><br><span class="line">total_page = <span class="number">10</span>   <span class="comment">#爬取的总页数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scrape_page</span>(<span class="params">url</span>):</span>    <span class="comment">#爬取页面，返回页面的html，电影的详情页</span></span><br><span class="line">    logging.info(<span class="string">&#x27;scraping %s...&#x27;</span>,url)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        response = requests.get(url,verify=<span class="literal">False</span>)    <span class="comment">#网页请求，取消证书验证警告</span></span><br><span class="line">        <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">            <span class="keyword">return</span> response.text   <span class="comment">#返回网页</span></span><br><span class="line">        logging.error(<span class="string">&#x27;get invalid status code %s while scraping %s&#x27;</span>, response.status_code, url)</span><br><span class="line">    <span class="keyword">except</span> requests.RequestException:</span><br><span class="line">        logging.error(<span class="string">&#x27;error occurred while scraping %s&#x27;</span>, url, exc_info=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scrape_index</span>(<span class="params">page</span>):</span>  <span class="comment">#获取电影列表的页面，一个页面包含10个电影</span></span><br><span class="line">    index_url = <span class="string">f&#x27;<span class="subst">&#123;Base_url&#125;</span>/page/<span class="subst">&#123;page&#125;</span>&#x27;</span>    <span class="comment">#拼接url  https://static1.scrape.cuiqingcai.com/page/1</span></span><br><span class="line">    <span class="keyword">return</span> scrape_page(index_url)   <span class="comment">#获取页面</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_index</span>(<span class="params">html</span>):</span>    <span class="comment">#解析网页,获取该页面中10个电影的详情链接</span></span><br><span class="line">    doc = pq(html)</span><br><span class="line">    links = doc(<span class="string">&#x27;.el-card .name&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> link <span class="keyword">in</span> links.items():</span><br><span class="line">        href = link.attr(<span class="string">&#x27;href&#x27;</span>)   <span class="comment">#获取详情页链接</span></span><br><span class="line">        detail_url = urljoin(Base_url, href)   <span class="comment">#链接拼接</span></span><br><span class="line">        <span class="comment">#logging.info(&#x27;get detail url %s&#x27;, detail_url)   #输出详情页链接</span></span><br><span class="line">        <span class="keyword">yield</span> detail_url</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scrape_detila</span>(<span class="params">url</span>):</span></span><br><span class="line">    <span class="keyword">return</span> scrape_page(url)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_detail</span>(<span class="params">html</span>):</span></span><br><span class="line">    doc = pq(html)</span><br><span class="line">    cover = doc(<span class="string">&#x27;img.cover&#x27;</span>).attr(<span class="string">&#x27;src&#x27;</span>)   <span class="comment">#获取封面图片</span></span><br><span class="line">    name = doc(<span class="string">&#x27;a&gt;h2&#x27;</span>).text()   <span class="comment">#直接选取 a 节点的直接子节点 h2 节点，并调用 text 方法提取其文本内容即可得到名称。</span></span><br><span class="line">    categories = [item.text() <span class="keyword">for</span> item <span class="keyword">in</span> doc(<span class="string">&#x27;.categories button span&#x27;</span>).items()]</span><br><span class="line">    publish_at = doc(<span class="string">&#x27;.info:contains(上映) &#x27;</span>).text()</span><br><span class="line">    publish_at = re.search(<span class="string">&#x27;(\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;)&#x27;</span>, publish_at).group(<span class="number">1</span>) <span class="keyword">if</span> publish_at <span class="keyword">and</span> re.search(<span class="string">&#x27;\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;&#x27;</span>, publish_at) <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">    drama = doc(<span class="string">&#x27;.drama p&#x27;</span>).text()</span><br><span class="line">    score = doc(<span class="string">&#x27;p.score&#x27;</span>).text()</span><br><span class="line">    score = <span class="built_in">float</span>(score) <span class="keyword">if</span> score <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="string">&#x27;cover&#x27;</span>: cover,</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span>: name,</span><br><span class="line">        <span class="string">&#x27;categories&#x27;</span>: categories,</span><br><span class="line">        <span class="string">&#x27;published_at&#x27;</span>: publish_at,</span><br><span class="line">        <span class="string">&#x27;drama&#x27;</span>: drama,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span>: score</span><br><span class="line">    &#125;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_data</span>(<span class="params">data</span>):</span></span><br><span class="line">    collection.update_one(&#123;<span class="string">&#x27;name&#x27;</span>: data.get(<span class="string">&#x27;name&#x27;</span>)&#125;, &#123;<span class="string">&#x27;$set&#x27;</span>: data&#125;, upsert=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, total_page+<span class="number">1</span>):</span><br><span class="line">        index_html = scrape_index(page)</span><br><span class="line">        detail_urls = parse_index(index_html)</span><br><span class="line">        <span class="keyword">for</span> detail_url <span class="keyword">in</span> detail_urls:</span><br><span class="line">            detail_html = scrape_detila(detail_url)</span><br><span class="line">            data = parse_detail(detail_html)</span><br><span class="line">            logging.info(<span class="string">&#x27;detail data is %s&#x27;</span>, data)</span><br><span class="line">            save_data(data)</span><br><span class="line">            print(<span class="string">&quot;存储成功&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    MONGO_CONNECTION_STRING = <span class="string">&#x27;mongodb://localhost:27017&#x27;</span></span><br><span class="line">    MONGO_DB_NAME = <span class="string">&#x27;movies&#x27;</span></span><br><span class="line">    MONGO_COLLECTION_NAME = <span class="string">&#x27;movies&#x27;</span></span><br><span class="line">    client = pymongo.MongoClient(MONGO_CONNECTION_STRING)</span><br><span class="line">    db = client[<span class="string">&#x27;movies&#x27;</span>]</span><br><span class="line">    collection = db[<span class="string">&#x27;movies&#x27;</span>]</span><br><span class="line">    main()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>工具</category>
+        <category>爬虫 代码</category>
       </categories>
       <tags>
-        <tag>软件命令</tag>
+        <tag>代码</tag>
       </tags>
   </entry>
 </search>
